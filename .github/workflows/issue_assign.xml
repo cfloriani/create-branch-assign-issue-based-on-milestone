@@ -17,8 +17,9 @@ jobs:
         architecture: 'x64'
     - name: Install Dependencies
       run: pip install PyGithub awesome-slugify
-    - name: Verify Milestone
+    - name: Exec Python Issue Assign
         env: 
           milestone: ${{ github.event.issue.milestone.title }} 
           issue: ${{ github.event.issue.title }}
-      run: python util/action_issues.py ${{ secrets.GITHUB_TOKEN }} 
+          repository: ${{ github.repository }}
+      run: python issue_assign.py ${{ secrets.GITHUB_TOKEN }} 
