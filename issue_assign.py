@@ -16,6 +16,6 @@ if str(os.getenv('milestone'))[0:7].lower() == "feature":
     branch_milestone = slugify(os.getenv('milestone'))
     print('Criada a branch ', branch_milestone ,' para a Milestone')
     repo.create_git_ref('refs/heads/{branch_milestone}'.format(**locals()),repo.get_branch('master').commit.sha)
-    repo.create_pull(title=branch_issue, body='body', head="develop", base="branch_milestone")
+    repo.create_pull(title=branch_issue, head="develop", base=os.getenv('user') + ':' + branch_milestone)
 else:
-    repo.create_pull(title=branch_issue, body='body', head="develop", base="master")
+    repo.create_pull(title=branch_issue, head="develop", base=os.getenv('user') + ':' + 'master')
