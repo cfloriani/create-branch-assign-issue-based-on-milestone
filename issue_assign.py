@@ -15,6 +15,6 @@ nome_branch = slugify(os.getenv('issue'))
 repo.create_git_ref('refs/heads/{nome_branch}'.format(**locals()),repo.get_branch('master').commit.sha)
 
 # cria uma branch extra para a issue com milestone feature:
-if str(os.getenv('milestone'))[0:6] == "feature":
+if str(os.getenv('milestone'))[0:7].lower() == "feature":
     nome_branch = slugify(os.getenv('milestone'))
     repo.create_git_ref('refs/heads/{nome_branch}'.format(**locals()),repo.get_branch('master').commit.sha)
