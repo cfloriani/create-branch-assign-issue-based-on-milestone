@@ -7,7 +7,7 @@ g = Github(sys.argv[1])
 repo = g.get_repo(os.getenv('repository'))
 
 # cria uma branch para a issue
-branch_issue = os.getenv('issue_num') + slugify(os.getenv('issue'))
+branch_issue = os.getenv('issue_num') + '-' + slugify(os.getenv('issue'))
 repo.create_git_ref('refs/heads/{branch_issue}'.format(**locals()),repo.get_branch('master').commit.sha)
 print('Criada a branch ', branch_issue ,' para a Issue')
 
