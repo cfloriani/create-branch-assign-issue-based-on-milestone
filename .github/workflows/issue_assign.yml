@@ -18,7 +18,7 @@ jobs:
     - name: Install Dependencies
       run: pip install PyGithub awesome-slugify
     - name: Exec Python Issue Assign
-        env: 
+      env: 
           milestone: ${{ github.event.issue.milestone.title }} 
           issue: ${{ github.event.issue.title }}
           repository: ${{ github.repository }}
