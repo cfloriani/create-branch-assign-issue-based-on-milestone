@@ -1,5 +1,5 @@
 name: Teste
- on:
+on:
   issues:
     types:
      - assigned
