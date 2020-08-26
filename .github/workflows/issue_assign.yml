@@ -23,5 +23,4 @@ jobs:
           issue: ${{ github.event.issue.title }}
           issue_num: ${{ github.event.issue.number }}
           repository: ${{ github.repository }}
-          user: ${{ github.event.assignee.login }}
       run: python issue_assign.py ${{ secrets.GITHUB_TOKEN }} 

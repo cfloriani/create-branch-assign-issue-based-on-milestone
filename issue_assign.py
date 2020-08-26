@@ -14,6 +14,3 @@ repo.create_git_ref('refs/heads/{branch_issue}'.format(**locals()),repo.get_bran
 if str(os.getenv('milestone'))[0:7].lower() == "feature":
     branch_milestone = slugify(os.getenv('milestone'))
     repo.create_git_ref('refs/heads/{branch_milestone}'.format(**locals()),repo.get_branch('master').commit.sha)
-    repo.create_pull(title=branch_issue, body='#' + os.getenv('issue_num'), head=os.getenv('user') + ':' + branch_milestone, base=branch_milestone)
-else:
-    repo.create_pull(title=branch_issue, body='#' + os.getenv('issue_num'), head=os.getenv('user') + ':' + branch_issue, base='master')
